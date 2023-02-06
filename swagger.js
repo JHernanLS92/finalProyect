@@ -9,7 +9,8 @@ const options = {
       "./src/routes/products.routes.js",
       "./src/models/product.js",
       "./src/routes/productIncart.routes.js",
-      "./src/models/productincart.js"
+      "./src/models/productincart.js",
+      "./src/routes/cart.routes.js",
     ],
     definition: {
       openapi: "3.0.0",

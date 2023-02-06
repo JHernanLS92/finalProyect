@@ -1,9 +1,15 @@
-const { cart } = require("../models");
+const { productincart, product } = require("../models");
 
 class CartServices {
-    static async newCart(nCart){
+    static async getAllOfCart(){
         try {
-            const result = await cart.create(nCart);
+            const result = await productincart.findAll({
+                attributes: ['id'],
+                include: {
+                    model: product, 
+                    as: "product"
+                }
+            });
             return result
         } catch (error) {
             throw error;

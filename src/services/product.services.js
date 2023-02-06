@@ -11,7 +11,9 @@ class ProductServices {
     }
     static async allProducts(){
         try {
-            const result = await product.findAll();
+            const result = await product.findAll({
+                attributes:["id", "name", "description", "image"]
+            });
             return result;
         } catch (error) {
             throw error;

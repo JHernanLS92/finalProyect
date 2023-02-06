@@ -37,6 +37,21 @@ module.exports = (sequelize, DataTypes) => {
  *         image:
  *           type: string
  *           example: http://imagen1
+ *     cart:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           example: Laptop
+ *         price:
+ *           type: float
+ *           example: 1600.50
+ *         description:
+ *           type: string
+ *           example: El producto consta de...
+ *         image:
+ *           type: string
+ *           example: http://imagen1
  */
 
 class product extends Sequelize.Model {
