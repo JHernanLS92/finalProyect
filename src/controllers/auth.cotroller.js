@@ -1,5 +1,6 @@
 const AuthServices = require("../services/auth.services");
-const CartServices = require("../services/cart.services")
+const CartServices = require("../services/cart.services");
+const orderServices = require("../services/order.services");
 const transporter = require("../utils/mailers");
 
 const register = async (req, res) => {
@@ -8,6 +9,7 @@ const register = async (req, res) => {
     const result = await AuthServices.register(user);
     if (result) {
       await CartServices.newCart({user_id: result.id, total_price: 0});
+      await orderServices.newOrder({user_id: result.id})
       res.status(201).json({ message: "User created" });
       await transporter.sendMail({
         to: result.email,
